@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+
 
 @Controller
 public class TrainerController {
@@ -25,12 +27,19 @@ public class TrainerController {
     @Autowired
     CourseDao courseDao;
 
-    @GetMapping("trainers")
+//    @GetMapping("/home")
+//    public ModelAndView index() throws Exception {
+//        return new ModelAndView("index");
+//    }
+
+
+    @GetMapping("/trainers")
     public String displayTrainers(Model model) {
         List<Trainer> trainers = trainerDao.getAllTrainers();
         model.addAttribute("trainers", trainers);
         return "trainers";
     }
+
     @PostMapping("addTrainer")
     public String addTrainer(HttpServletRequest request) {
         String firstName = request.getParameter("firstName");
@@ -61,6 +70,22 @@ public class TrainerController {
         Trainer trainer = trainerDao.getTrainerById(id);
 
         model.addAttribute("trainer", trainer);
-        return "redirect:/editTrainer";
+        return "editTrainer";
+    }
+
+
+    @PostMapping("editTrainer")
+    public String performEditTrainer(HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Trainer trainer = trainerDao.getTrainerById(id);
+
+
+        trainer.setFirstName(request.getParameter("firstName"));
+        trainer.setLastName(request.getParameter("lastName"));
+        trainer.setStrength(request.getParameter("strength"));
+
+        trainerDao.updateTrainer(trainer);
+
+        return "redirect:/trainers";
     }
 }

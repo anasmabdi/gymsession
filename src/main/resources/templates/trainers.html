@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,7 +22,7 @@
     </div>
     <div class="row m-4 border border-dark">
         <div class="col text-center m-3">
-            <a href="trainers" class="btn btn-outline-primary btn-lg">Trainers</a>
+            <a href="/trainers" class="btn btn-outline-primary btn-lg">Trainers</a>
         </div>
         <div class="col text-center m-3">
             <a href="trainees" class="btn btn-outline-primary btn-lg">Trainees</a>
@@ -80,11 +81,12 @@
                 <tbody>
                 <tr th:each="trainer : ${trainers}">
                     <td th:text="${trainer.id}">Trainer ID</td>
-                    <td th:text="${trainer.firstName}">Teacher First Name</td>
-                    <td th:text="${trainer.lastName}">Teacher Last Name</td>
-                    <td th:text="${trainer.strength}">Teacher Strength</td>
+                    <td th:text="${trainer.firstName}">Trainer First Name</td>
+                    <td th:text="${trainer.lastName}">Trainer Last Name</td>
+                    <td th:text="${trainer.strength}">Trainer Strength</td>
                     <td><a href="#" th:href="@{/editTrainer(id=${trainer.id})}">Edit</a></td>
                     <td><a href="#" th:href="@{/deleteTrainer(id=${trainer.id})}">Delete</a></td>
+
                 </tr>
                 </tbody>
             </table>

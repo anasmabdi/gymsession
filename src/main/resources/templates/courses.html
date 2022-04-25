@@ -102,7 +102,7 @@
                     <td th:text='${course.name}'>Course Name</td>
                     <td th:text="${course.trainer.firstName + ' '
                                     + course.trainer.lastName}">Trainer  Name</td>
-                    <td>><a href="#" th:href="@{/courseDetail(id=${course.id})}">Details</a></td>
+                    <td><a href="#" th:href="@{/courseDetail(id=${course.id})}">Details</a></td>
                     <td><a href="#" th:href="@{/editCourse(id=${course.id})}">Edit</a></td>
                     <td><a href="#" th:href="@{/deleteCourse(id=${course.id})}">Delete</a></td>
                 </tr>

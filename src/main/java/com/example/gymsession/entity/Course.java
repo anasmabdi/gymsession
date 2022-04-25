@@ -1,4 +1,4 @@
-package entity;
+package com.example.gymsession.entity;
 
 import java.util.List;
 import java.util.Objects;

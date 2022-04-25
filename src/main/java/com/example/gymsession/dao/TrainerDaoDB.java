@@ -1,6 +1,6 @@
-package dao;
+package com.example.gymsession.dao;
 
-import entity.Trainer;
+import com.example.gymsession.entity.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,7 +37,7 @@ public class TrainerDaoDB implements TrainerDao {
     @Override
     @Transactional
     public Trainer addTrainer(Trainer trainer) {
-        final String INSERT_TRAINER = "INSERT INTO trainer(firstName, lastName, specialty) " +
+        final String INSERT_TRAINER = "INSERT INTO trainer(firstName, lastName, strength) " +
                 "VALUES(?,?,?)";
         jdbc.update(INSERT_TRAINER,
                 trainer.getFirstName(),
@@ -52,7 +52,7 @@ public class TrainerDaoDB implements TrainerDao {
     @Override
     public void updateTrainer(Trainer trainer) {
         final String UPDATE_TRAINER = "UPDATE trainer SET firstName = ?, lastName = ?, " +
-                "specialty = ? WHERE id = ?";
+                "strength = ? WHERE id = ?";
         jdbc.update(UPDATE_TRAINER,
                 trainer.getFirstName(),
                 trainer.getLastName(),
@@ -82,7 +82,7 @@ public class TrainerDaoDB implements TrainerDao {
             trainer.setId(rs.getInt("id"));
             trainer.setFirstName(rs.getString("firstName"));
             trainer.setLastName(rs.getString("lastName"));
-            trainer.setStrength(rs.getString("specialty"));
+            trainer.setStrength(rs.getString("strength"));
 
             return trainer;
         }

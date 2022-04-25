@@ -1,21 +1,22 @@
-package controller;
+package com.example.gymsession.controller;
 
-import dao.CourseDao;
-import dao.TraineeDao;
-import dao.TrainerDao;
-import entity.Trainer;
+import com.example.gymsession.dao.CourseDao;
+import com.example.gymsession.dao.TraineeDao;
+import com.example.gymsession.dao.TrainerDao;
+import com.example.gymsession.entity.Trainer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
 @Controller
+@Slf4j
 public class TrainerController {
 
     @Autowired
@@ -33,10 +34,11 @@ public class TrainerController {
 //    }
 
 
-    @GetMapping("/trainers")
+    @GetMapping("trainers")
     public String displayTrainers(Model model) {
         List<Trainer> trainers = trainerDao.getAllTrainers();
         model.addAttribute("trainers", trainers);
+        log.error(String.valueOf(model));
         return "trainers";
     }
 

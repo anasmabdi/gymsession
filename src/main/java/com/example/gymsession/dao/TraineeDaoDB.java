@@ -1,6 +1,6 @@
-package dao;
+package com.example.gymsession.dao;
 
-import entity.Trainee;
+import com.example.gymsession.entity.Trainee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

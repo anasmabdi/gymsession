@@ -1,8 +1,8 @@
-package dao;
+package com.example.gymsession.dao;
 
-import entity.Course;
-import entity.Trainee;
-import entity.Trainer;
+import com.example.gymsession.entity.Course;
+import com.example.gymsession.entity.Trainee;
+import com.example.gymsession.entity.Trainer;
 
 import java.util.List;
 

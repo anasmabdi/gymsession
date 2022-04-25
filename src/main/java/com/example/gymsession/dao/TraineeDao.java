@@ -1,6 +1,6 @@
-package dao;
+package com.example.gymsession.dao;
 
-import entity.Trainee;
+import com.example.gymsession.entity.Trainee;
 
 import java.util.List;
 

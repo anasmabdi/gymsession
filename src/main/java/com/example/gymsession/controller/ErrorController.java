@@ -1,4 +1,4 @@
-package controller;
+package com.example.gymsession.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

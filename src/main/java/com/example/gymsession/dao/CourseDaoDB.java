@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.ManyToMany;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -76,6 +77,7 @@ public class CourseDaoDB implements CourseDao {
         return course;
     }
 
+
     private void insertCourseTrainee(Course course) {
         final String INSERT_COURSE_TRAINEE = "INSERT INTO "
                 + "course_trainee(courseId, traineeId) VALUES(?,?)";
@@ -111,6 +113,7 @@ public class CourseDaoDB implements CourseDao {
         final String DELETE_COURSE = "DELETE FROM course WHERE id = ?";
         jdbc.update(DELETE_COURSE, id);
     }
+
 
     @Override
     public List<Course> getCoursesForTrainer(Trainer trainer) {
